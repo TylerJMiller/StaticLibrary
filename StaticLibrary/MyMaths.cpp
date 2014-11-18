@@ -71,6 +71,32 @@ Vector3D::Vector3D(float ax, float ay, float az)
 }
 
 
+//VECTOR4D
+Vector4D::Vector4D()
+{
+}
+Vector4D::Vector4D(float aw, float ax, float ay, float az)
+{
+	w = aw;
+	x = ax;
+	y = ay;
+	z = az;
+}
+
+float Vector4D::Length()
+{
+	return sqrt((w * w) + (x * x) + (y * y) + (z * z));
+}
+
+void Vector4D::Normalize()
+{
+	w = w / Length();
+	x = x / Length();
+	y = y / Length();
+	z = z / Length();
+}
+
+
 //POINT
 void Point2D::Set(float ax, float ay)
 {
@@ -248,7 +274,6 @@ bool CheckCircleCircle(float ax, float ay, float ar, float bx, float by, float b
 
 bool CheckLineLine(Line l1, Line l2)				//NOT DONE YET BECAUSE NOT DONE YET
 {
-
 	return false;
 }
 
@@ -305,7 +330,7 @@ bool CheckLineCircle(Circle c, Line l)
 
 	if (v3.Length() > v1.Length())
 		return false;
-
+	 
 	if (CheckPointCircle(v3.x, v3.y, v2.x, v2.y, c.r))
 		return true;
 

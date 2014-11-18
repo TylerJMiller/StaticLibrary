@@ -39,6 +39,18 @@ public:
 	float Magnitude();
 };
 
+class Vector4D
+{
+public:
+	float w;
+	float x;
+	float y;
+	float z;
+	Vector4D();
+	Vector4D(float, float, float, float);
+	float Length();
+	void Normalize();
+};
 
 class Point2D		//POINT CLASS
 {
@@ -135,6 +147,7 @@ bool CheckPointCircle(float px, float py, float cx, float cy, float cr);
 bool CheckLineCircle(Circle a, Line seg);
 
 bool CheckLineCircle(float ax, float ay, float ar, float lx, float ly);
+
 
 
 
