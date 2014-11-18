@@ -2,22 +2,22 @@
 #include <math.h>
 
 //VECTOR2D
-void Vector2D::Set(float ax, float ay)
+void Vector2::Set(float ax, float ay)
 {
 	x = ax;
 	y = ay;
 }
-float Vector2D::Length()
+float Vector2::Length()
 {
 	if (x == 0 && y == 0)
 		return 0;
 	return sqrt((x * x) + (y * y));
 }
-float Vector2D::Magnitude()
+float Vector2::Magnitude()
 {
 	return (x * x) + (y * y);
 }
-float Vector2D::Normal()
+float Vector2::Normal()
 {
 	if (Length() == 0)
 		return 0;
@@ -25,33 +25,33 @@ float Vector2D::Normal()
 	return sqrt((x / Length())*(x / Length())) + ((y / Length())*(y / Length()));
 }
 //CONSTRUCTOR
-Vector2D::Vector2D()
+Vector2::Vector2()
 {
 }
-Vector2D::Vector2D(float ax, float ay)
+Vector2::Vector2(float ax, float ay)
 {
 	x = ax;
 	y = ay;
 }
 
 //VECTOR3D
-void Vector3D::Set(float ax, float ay, float az)
+void Vector3::Set(float ax, float ay, float az)
 {
 	x = ax;
 	y = ay;
 }
-float Vector3D::Length()
+float Vector3::Length()
 {
 	if (x == 0 && y == 0)
 		return z;
 	float xy = sqrt((x * x) + (y * y));
 	return sqrt((xy * xy) + (z * z));
 }
-float Vector3D::Magnitude()
+float Vector3::Magnitude()
 {
 	return (x * x) + (y * y);
 }
-float Vector3D::Normal()
+float Vector3::Normal()
 {
 	if (Length() == 0)
 		return 0;
@@ -60,10 +60,10 @@ float Vector3D::Normal()
 }
 
 //CONSTRUCTOR
-Vector3D::Vector3D()
+Vector3::Vector3()
 {
 }
-Vector3D::Vector3D(float ax, float ay, float az)
+Vector3::Vector3(float ax, float ay, float az)
 {
 	x = ax;
 	y = ay;
@@ -72,10 +72,10 @@ Vector3D::Vector3D(float ax, float ay, float az)
 
 
 //VECTOR4D
-Vector4D::Vector4D()
+Vector4::Vector4()
 {
 }
-Vector4D::Vector4D(float aw, float ax, float ay, float az)
+Vector4::Vector4(float aw, float ax, float ay, float az)
 {
 	w = aw;
 	x = ax;
@@ -83,12 +83,12 @@ Vector4D::Vector4D(float aw, float ax, float ay, float az)
 	z = az;
 }
 
-float Vector4D::Length()
+float Vector4::Length()
 {
 	return sqrt((w * w) + (x * x) + (y * y) + (z * z));
 }
 
-void Vector4D::Normalize()
+void Vector4::Normalize()
 {
 	w = w / Length();
 	x = x / Length();
@@ -98,16 +98,16 @@ void Vector4D::Normalize()
 
 
 //POINT
-void Point2D::Set(float ax, float ay)
+void Point2::Set(float ax, float ay)
 {
 	x = ax;
 	y = ay;
 }
 //CONSTRUCTOR
-Point2D::Point2D()
+Point2::Point2()
 {
 }
-Point2D::Point2D(float ax, float ay)
+Point2::Point2(float ax, float ay)
 {
 	x = ax;
 	y = ay;
@@ -138,7 +138,7 @@ void Line::Set(float startx, float starty, float endx, float endy)
 	X2 = endx;
 	Y2 = endy;
 }
-void Line::Set(Point2D a_point1, Point2D a_point2)
+void Line::Set(Point2 a_point1, Point2 a_point2)
 {
 	X1 = a_point1.x;
 	Y1 = a_point1.y;
@@ -157,25 +157,25 @@ float Line::LengthY()
 {
 	return (Y2 - Y1);
 }
-void Vector2D::operator=(Vector2D &a)
+void Vector2::operator=(Vector2 &a)
 {
 	x = a.x;
 	y = a.y;
 }
-Vector2D Line::GetVector()
+Vector2 Line::GetVector()
 {
-	return Vector2D(LengthX(), LengthY());
+	return Vector2(LengthX(), LengthY());
 }
-Point2D Line::Start()
+Point2 Line::Start()
 {
-	return Point2D(X1, Y1);
+	return Point2(X1, Y1);
 }
-Point2D Line::End()
+Point2 Line::End()
 {
-	return Point2D(X2, Y2);
+	return Point2(X2, Y2);
 }
 //CONSTRUCTOR
-Line::Line(Point2D a_point1, Point2D a_point2)
+Line::Line(Point2 a_point1, Point2 a_point2)
 {
 	X1 = a_point1.x;
 	Y1 = a_point1.y;
@@ -184,21 +184,21 @@ Line::Line(Point2D a_point1, Point2D a_point2)
 }
 
 //BOX
-Point2D Box::GetLeftBot()
+Point2 Box::GetLeftBot()
 {
-	return Point2D(X1, Y1);
+	return Point2(X1, Y1);
 }
-Point2D Box::GetLeftTop()
+Point2 Box::GetLeftTop()
 {
-	return Point2D(X1, Y2);
+	return Point2(X1, Y2);
 }
-Point2D Box::GetRightBot()
+Point2 Box::GetRightBot()
 {
-	return Point2D(X2, Y1);
+	return Point2(X2, Y1);
 }
-Point2D Box::GetRightTop()
+Point2 Box::GetRightTop()
 {
-	return Point2D(X2, Y2);
+	return Point2(X2, Y2);
 }
 Line Box::GetBotLine()
 {
@@ -223,7 +223,7 @@ void Box::Set(float ax, float ay, float ax2, float ay2)
 	X2 = ax2;
 	Y2 = ay2;
 }
-void Box::Set(Point2D p1, Point2D p2)
+void Box::Set(Point2 p1, Point2 p2)
 {
 	X1 = p1.x;
 	Y1 = p1.y;
@@ -234,7 +234,7 @@ void Box::Set(Point2D p1, Point2D p2)
 Box::Box()
 {
 }
-Box::Box(Point2D p1, Point2D p2)
+Box::Box(Point2 p1, Point2 p2)
 {
 	X1 = p1.x;
 	Y1 = p1.y;
@@ -250,12 +250,12 @@ Box::Box(float ax1, float ay1, float ax2, float ay2)
 	Y2 = ay2;
 }
 
-float Dot(Vector2D a, Vector2D b)		//DOT PRODUCT OF TWO VECTORS
+float Dot(Vector2 a, Vector2 b)		//DOT PRODUCT OF TWO VECTORS
 {
 	return ((a.x * b.x) + (a.y * b.y));
 }
 
-bool CheckPointBox(Point2D p, Box b)		//POINT-BOX COLLISION
+bool CheckPointBox(Point2 p, Box b)		//POINT-BOX COLLISION
 {
 	if (p.x > b.GetLeftBot().x && p.x < b.GetRightTop().x && p.y > b.GetLeftBot().y && p.y < b.GetRightTop().y)
 		return true;
@@ -291,7 +291,7 @@ bool CheckBoxBox(Box b1, Box b2)		//BOX-BOX COLLISION - AABB ONE WAY
 	return false;
 }
 
-float Distance(Point2D a, Point2D b)		//DISTANCE BETWEEN TWO POINTS
+float Distance(Point2 a, Point2 b)		//DISTANCE BETWEEN TWO POINTS
 {
 	return (((b.x - a.x) * (b.x - a.x)) + ((b.y - a.y) * (b.y - a.y)));
 }
@@ -303,7 +303,7 @@ float Distance(float ax, float ay, float bx, float by)
 	return sqrt(((bx - ax) * (bx - ax)) + ((by - ay) * (by - ay)));
 }
 
-bool CheckPointCircle(Point2D p, Circle c)
+bool CheckPointCircle(Point2 p, Circle c)
 {
 	if (Distance(p.x, p.y, c.x, c.y) < c.r)
 		return true;
@@ -324,9 +324,9 @@ bool CheckLineCircle(Circle c, Line l)
 	if (CheckPointCircle(l.End(), c))
 		return true;
 
-	Vector2D v1(l.X2 - l.X1, l.Y2 - l.Y1);
-	Vector2D v2(c.x - l.X1, c.y - l.Y1);
-	Vector2D v3((Dot(v2, v1) / v1.Magnitude()) * v1.x, (Dot(v2, v1) / v1.Magnitude()) * v1.y);
+	Vector2 v1(l.X2 - l.X1, l.Y2 - l.Y1);
+	Vector2 v2(c.x - l.X1, c.y - l.Y1);
+	Vector2 v3((Dot(v2, v1) / v1.Magnitude()) * v1.x, (Dot(v2, v1) / v1.Magnitude()) * v1.y);
 
 	if (v3.Length() > v1.Length())
 		return false;
