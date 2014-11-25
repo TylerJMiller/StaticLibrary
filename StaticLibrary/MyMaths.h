@@ -8,7 +8,6 @@ public:
 	//DECLARING DEFAULTS AND OVERLOADS
 	Vector2();
 	Vector2(float, float);
-	void Set(float ax, float ay);
 
 	//OVERLOADS
 	void operator=(Vector2 &a);
@@ -28,7 +27,6 @@ public:
 	//DECLARING DEFAULTS AND OVERLOADS
 	Vector3();
 	Vector3(float, float, float);
-	void Set(float ax, float ay, float az);
 
 	//OVERLOADS
 	void operator=(Vector3 &a);
@@ -61,7 +59,6 @@ public:
 	Point2();
 	Point2(float, float);
 	//SETTING VALUES
-	void Set(float ax, float ay);
 };
 
 class Circle	//CIRCLE CLASS
@@ -72,7 +69,6 @@ public:
 	float r;
 	Circle();
 	Circle(float XPOS, float YPOS, float RADIUS);
-	void Set(float XPOS, float YPOS, float RADIUS);
 };
 
 class Line		//LINE CLASS
@@ -86,8 +82,6 @@ public:
 	Line();
 	Line(Point2, Point2);
 	//SETTING VALUES
-	void Set(float startx, float starty, float endx, float endy);
-	void Set(Point2 a_point1, Point2 a_point2); //SET OVERLOAD USING POINT CLASS
 	//GETTING VALUES
 	float Length();
 	float LengthX();
@@ -99,16 +93,13 @@ public:
 
 class Box		//BOX CLASS
 {
-private:
-	float X1, Y1, X2, Y2;
 public:
+	float X1, Y1, X2, Y2;
 	//CONSTRUCTORS
 	Box();
 	Box(Point2, Point2);
 	Box(float, float, float, float);
 	//SETTING VALUES
-	void Set(float ax, float ay, float ax2, float ay2);
-	void Set(Point2 p1, Point2 p2); //SET OVERLOAD USING POINTS
 	//GETTING VALUES
 	Point2 GetLeftBot();
 	Point2 GetLeftTop();

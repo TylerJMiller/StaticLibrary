@@ -2,11 +2,6 @@
 #include <math.h>
 
 //VECTOR2D
-void Vector2::Set(float ax, float ay)
-{
-	x = ax;
-	y = ay;
-}
 float Vector2::Length()
 {
 	if (x == 0 && y == 0)
@@ -35,11 +30,6 @@ Vector2::Vector2(float ax, float ay)
 }
 
 //VECTOR3D
-void Vector3::Set(float ax, float ay, float az)
-{
-	x = ax;
-	y = ay;
-}
 float Vector3::Length()
 {
 	if (x == 0 && y == 0)
@@ -70,7 +60,6 @@ Vector3::Vector3(float ax, float ay, float az)
 	z = az;
 }
 
-
 //VECTOR4D
 Vector4::Vector4()
 {
@@ -98,11 +87,7 @@ void Vector4::Normalize()
 
 
 //POINT
-void Point2::Set(float ax, float ay)
-{
-	x = ax;
-	y = ay;
-}
+
 //CONSTRUCTOR
 Point2::Point2()
 {
@@ -123,28 +108,8 @@ Circle::Circle(float XPOS, float YPOS, float RADIUS)
 	y = YPOS;
 	r = RADIUS;
 }
-void Circle::Set(float XPOS, float YPOS, float RADIUS)
-{
-	x = XPOS;
-	y = YPOS;
-	r = RADIUS;
-}
 
 //LINE
-void Line::Set(float startx, float starty, float endx, float endy)
-{
-	X1 = startx;
-	Y1 = starty;
-	X2 = endx;
-	Y2 = endy;
-}
-void Line::Set(Point2 a_point1, Point2 a_point2)
-{
-	X1 = a_point1.x;
-	Y1 = a_point1.y;
-	X2 = a_point2.x;
-	Y2 = a_point2.y;
-}
 float Line::Length()
 {
 	return (((X2 - X1) * (X2 - X1)) + ((Y2 - Y1) * (Y2 - Y1)));
@@ -216,20 +181,7 @@ Line Box::GetLeftLine()
 {
 	return Line(GetLeftTop(), GetLeftBot());
 }
-void Box::Set(float ax, float ay, float ax2, float ay2)
-{
-	X1 = ax;
-	Y1 = ay;
-	X2 = ax2;
-	Y2 = ay2;
-}
-void Box::Set(Point2 p1, Point2 p2)
-{
-	X1 = p1.x;
-	Y1 = p1.y;
-	X2 = p2.x;
-	Y2 = p2.y;
-}
+
 //CONSTRUCTORS
 Box::Box()
 {
@@ -250,52 +202,64 @@ Box::Box(float ax1, float ay1, float ax2, float ay2)
 	Y2 = ay2;
 }
 
-float Dot(Vector2 a, Vector2 b)		//DOT PRODUCT OF TWO VECTORS
+//DOT PRODUCT OF TWO VECTORS
+float Dot(Vector2 a, Vector2 b)		
 {
 	return ((a.x * b.x) + (a.y * b.y));
 }
 
-bool CheckPointBox(Point2 p, Box b)		//POINT-BOX COLLISION
+//POINT-BOX COLLISION
+bool CheckPointBox(Point2 p, Box b)		
 {
 	if (p.x > b.GetLeftBot().x && p.x < b.GetRightTop().x && p.y > b.GetLeftBot().y && p.y < b.GetRightTop().y)
 		return true;
 	return false;
 }
 
-bool CheckCircleCircle(Circle a, Circle b)	//COLLISION BETWEEN TWO CIRCLES
+//COLLISION BETWEEN TWO CIRCLES
+bool CheckCircleCircle(Circle a, Circle b)	
 {
 	return (a.r + b.r) > Distance(a.x, a.y, b.x, b.y);
 }
 
-bool CheckCircleCircle(float ax, float ay, float ar, float bx, float by, float br)	//CIRCLE CIRCLE OVERLOAD
+//COLLISION BETWEEN TWO CIRCLES
+bool CheckCircleCircle(float ax, float ay, float ar, float bx, float by, float br)	
 {
 	return (ar + br) > Distance(ax, ay, bx, by);
 }
 
-bool CheckLineLine(Line l1, Line l2)				//NOT DONE YET BECAUSE NOT DONE YET
+//RETURNS FALSE UNTIL FINISHED
+bool CheckLineLine(Line l1, Line l2)
 {
 	return false;
 }
 
-bool IsWithin(float anum, float amin, float amax)		//IF A GIVEN NUMBER IS BETWEEN TWO GIVEN NUMBERS
+//IF A GIVEN NUMBER IS BETWEEN TWO GIVEN NUMBERS
+bool IsWithin(float anum, float amin, float amax)		
 {
 	if (anum >= amin && anum <= amax)
 		return true;
 	return false;
 }
 
-bool CheckBoxBox(Box b1, Box b2)		//BOX-BOX COLLISION - AABB ONE WAY
+//BOX-BOX COLLISION - AABB ONE WAY
+bool CheckBoxBox(Box b1, Box b2)		
 {
 	if (CheckPointBox(b1.GetLeftBot(), b2) || CheckPointBox(b1.GetRightBot(), b2) || CheckPointBox(b1.GetRightTop(), b2) || CheckPointBox(b1.GetLeftTop(), b2))
 		return true;
 	return false;
 }
 
-float Distance(Point2 a, Point2 b)		//DISTANCE BETWEEN TWO POINTS
+//DISTANCE BETWEEN TWO POINTS
+float Distance(Point2 a, Point2 b)		
 {
+	if (((b.x - a.x) * (b.x - a.x)) + ((b.y - a.y) * (b.y - a.y)) == 0)
+		return 0;
 	return (((b.x - a.x) * (b.x - a.x)) + ((b.y - a.y) * (b.y - a.y)));
 }
 
+
+//DO NOT DIVIDE BY INFINITE
 float Distance(float ax, float ay, float bx, float by)
 {
 	if (((bx - ax) * (bx - ax)) + ((by - ay) * (by - ay)) == 0)
