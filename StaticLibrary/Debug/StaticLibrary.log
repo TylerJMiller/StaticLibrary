@@ -1,14 +1,20 @@
-﻿Build started 11/24/2014 3:40:44 PM.
+﻿Build started 12/1/2014 1:59:41 PM.
      1>Project "C:\Users\tyler.miller\Desktop\StaticLibrary\StaticLibrary\StaticLibrary.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MyMaths.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MyCollisions.cpp MyMaths.cpp RetroRedux.cpp
+         RetroRedux.cpp
          MyMaths.cpp
+         MyCollisions.cpp
+         Generating Code...
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\tyler.miller\Desktop\StaticLibrary\Debug\StaticLibrary.lib" /NOLOGO Debug\MyCollisions.obj
          Debug\MyMaths.obj
+         Debug\RetroRedux.obj
+     1>MyMaths.obj : warning LNK4006: "public: __thiscall Vector2::Vector2(float,float)" (??0Vector2@@QAE@MM@Z) already defined in RetroRedux.obj; second definition ignored
+     1>MyMaths.obj : warning LNK4006: "public: __thiscall Vector2::Vector2(void)" (??0Vector2@@QAE@XZ) already defined in RetroRedux.obj; second definition ignored
          StaticLibrary.vcxproj -> C:\Users\tyler.miller\Desktop\StaticLibrary\Debug\StaticLibrary.lib
      1>Done Building Project "C:\Users\tyler.miller\Desktop\StaticLibrary\StaticLibrary\StaticLibrary.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.02
+Time Elapsed 00:00:00.93

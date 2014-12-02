@@ -24,12 +24,18 @@
     <ClInclude Include="MyCollisions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RetroRedux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyMaths.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MyCollisions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RetroRedux.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

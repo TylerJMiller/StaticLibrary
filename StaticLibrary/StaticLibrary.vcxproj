@@ -76,10 +76,12 @@
   <ItemGroup>
     <ClInclude Include="MyCollisions.h" />
     <ClInclude Include="MyMaths.h" />
+    <ClInclude Include="RetroRedux.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyCollisions.cpp" />
     <ClCompile Include="MyMaths.cpp" />
+    <ClCompile Include="RetroRedux.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
