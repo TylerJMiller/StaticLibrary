@@ -10,8 +10,15 @@ public:
 	Vector2(float, float);
 
 	//OVERLOADS
-	void operator=(Vector2 &a);
-
+	void operator=(Vector2 &a)
+	{
+		x = a.x;
+		y = a.y;
+	}
+	Vector2 operator*(float f)
+	{
+		return Vector2(x*f, y*f);
+	}
 	//GETTING VALUES
 	float Length();
 	float Normal();
@@ -139,7 +146,7 @@ bool CheckLineCircle(Circle a, Line seg);
 
 bool CheckLineCircle(float ax, float ay, float ar, float lx, float ly);
 
-
+void Rotate2D(Point2 origin, float radians, Vector2 &v);
 
 
 

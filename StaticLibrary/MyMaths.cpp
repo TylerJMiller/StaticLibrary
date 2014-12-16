@@ -22,6 +22,8 @@ float Vector2::Normal()
 //CONSTRUCTOR
 Vector2::Vector2()
 {
+	x = -1;
+	y = -1;
 }
 Vector2::Vector2(float ax, float ay)
 {
@@ -52,6 +54,9 @@ float Vector3::Normal()
 //CONSTRUCTOR
 Vector3::Vector3()
 {
+	x = -1;
+	y = -1;
+	z = -1;
 }
 Vector3::Vector3(float ax, float ay, float az)
 {
@@ -63,6 +68,10 @@ Vector3::Vector3(float ax, float ay, float az)
 //VECTOR4D
 Vector4::Vector4()
 {
+	w = -1;
+	x = -1;
+	y = -1;
+	z = -1;
 }
 Vector4::Vector4(float aw, float ax, float ay, float az)
 {
@@ -122,11 +131,7 @@ float Line::LengthY()
 {
 	return (Y2 - Y1);
 }
-void Vector2::operator=(Vector2 &a)
-{
-	x = a.x;
-	y = a.y;
-}
+
 Vector2 Line::GetVector()
 {
 	return Vector2(LengthX(), LengthY());
@@ -299,4 +304,9 @@ bool CheckLineCircle(Circle c, Line l)
 		return true;
 
 	return false;
+}
+
+void Rotate2D(Point2 origin, float radians, Vector2 &v)
+{
+
 }
