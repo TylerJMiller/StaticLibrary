@@ -19,6 +19,15 @@ public:
 	{
 		return Vector2(x*f, y*f);
 	}
+	Vector2 operator+(Vector2 &a)
+	{
+		return Vector2(x + a.x, y + a.y);
+	}
+	void operator+=(Vector2 &a)
+	{
+		x += a.x;
+		y += a.y;
+	}
 	//GETTING VALUES
 	float Length();
 	float Normal();
@@ -36,7 +45,26 @@ public:
 	Vector3(float, float, float);
 
 	//OVERLOADS
-	void operator=(Vector3 &a);
+	void operator=(Vector3 &a)
+	{
+		x = a.x;
+		y = a.y;
+		z = a.z;
+	}
+	Vector3 operator*(float f)
+	{
+		return Vector3(x*f, y*f, z*f);
+	}
+	Vector3 operator+(Vector3 &a)
+	{
+		return Vector3(x + a.x, y + a.y, z + a.z);
+	}
+	void operator+=(Vector3 &a)
+	{
+		x += a.x;
+		y += a.y;
+		z += a.z;
+	}
 
 	//GETTING VALUES
 	float Length();
@@ -148,7 +176,9 @@ bool CheckLineCircle(float ax, float ay, float ar, float lx, float ly);
 
 void Rotate2D(Point2 origin, float radians, Vector2 &v);
 
+Vector2 Interpolate(Vector2 a, Vector2 b);
 
+Vector3 Interpolate(Vector3 a, Vector3 b);
 
 
 #endif

@@ -310,3 +310,13 @@ void Rotate2D(Point2 origin, float radians, Vector2 &v)
 {
 
 }
+
+Vector2 Interpolate(Vector2 a, Vector2 b)
+{
+	return Vector2(a.x - b.x, a.y - b.y);
+}
+
+Vector3 Interpolate(Vector3 a, Vector3 b)
+{
+	return Vector3(a.x - b.x, a.y - b.y, a.z - b.z);
+}
